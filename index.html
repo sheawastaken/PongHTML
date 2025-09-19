@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>~ ⟡˙⋆ 𝙿𝚘𝚗𝚐 ⋆˙⟡ ~</title>
 </head>
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+    }
+
+    body {
+        background: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    #game {
+        outline: white 8px solid;
+        outline-style: dashed;
+    }
+</style>
+
 <body>
-    
+    <canvas width="1280" height="720" id="game">
+
+    </canvas>
+    <script>
+        function draw() {
+            const ctx = document.getElementById("game").getContext("2d");
+            // draw background
+            ctx.fillStyle = "white";
+            ctx.strokeStyle = "white";
+            //paddle x without offset 300, 940
+            //paddle y without offset 360, 360
+            //cube y -= paddle height /2
+
+            //x, y, width, height
+            ctx.fillRect(130, 290, 30, 140); //l
+            ctx.fillRect(1120, 290, 30, 140); //r
+            ctx.fillRect(625, 345, 30, 30)
+
+            ctx.lineWidth = 8;
+            ctx.beginPath();
+            ctx.setLineDash([15, 9])
+            ctx.moveTo(640, 5);
+            ctx.lineTo(640, 720);
+
+            ctx.stroke();
+
+            ctx.fill();
+        }
+
+        draw();
+    </script>
 </body>
+
 </html>
